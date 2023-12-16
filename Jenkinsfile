@@ -12,7 +12,10 @@ pipeline {
       steps {
         script{
              echo "The environment is: ${params.Environments}"
+             sh 'mkdir -p ${params.Environments}/test1'
+             
              if ( params.Environments == 'DEV'){
+             
              echo "Hello  from DEV branch"
              sh 'pwd'
              sh 'ls -lart'
