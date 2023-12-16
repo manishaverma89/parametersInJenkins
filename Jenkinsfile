@@ -21,7 +21,7 @@ pipeline {
              sh 'mkdir -p DEV/dir1'
              sh 'pwd'
              sh 'ls -lart'
-             sh 'ls DEVi'
+             sh 'ls DEV'
             
         }
              else{
