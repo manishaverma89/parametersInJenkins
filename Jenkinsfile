@@ -15,8 +15,8 @@ pipeline {
              if ( params.Environments == 'DEV'){
              echo "Hello  from DEV branch"
              sh 'pwd'
-             sh 'cd ~'
-             sh 'cd ../..'
+             sh 'ls -lart'
+             sh 'mkdir DEV/dir1'
              sh 'pwd'
              sh 'ls -lart'
             
