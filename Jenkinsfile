@@ -16,6 +16,8 @@ pipeline {
              echo "Hello  from DEV branch"
              sh 'pwd'
              sh 'ls -lart'
+             sh 'mkdir DEV'
+             sh 'cd DEV'
              sh 'mkdir DEV/dir1'
              sh 'pwd'
              sh 'ls -lart'
