@@ -13,7 +13,7 @@ pipeline {
         script{
              echo "The environment is: ${params.Environments}"
              if ( params.Environments == 'DEV'){
-             echo "Hello this is from DEV branch"
+             echo "Hello  from DEV branch"
              sh 'pwd'
              sh 'mkdir -p dev_1'
              sh 'ls -lart'
