@@ -20,7 +20,7 @@ pipeline {
             
         }
              else{
-                  echo "Hello from ${params.Environments} branch "
+                  echo "Hello this is from ${params.Environments} branch "
              } 
      }
     }
