@@ -12,7 +12,8 @@ pipeline {
       steps {
         script{
              echo "The environment is: ${params.Environments}"
-             sh 'mkdir -p ${params.Environments}/test1'
+             env=${params.Environments}
+             sh 'mkdir -p ${env}/test1'
              
              if ( params.Environments == 'DEV'){
              
