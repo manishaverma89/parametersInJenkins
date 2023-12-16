@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+    parameters{
+            choice(
+            name: 'CREATION_OR_DELETION_FOLDER_CHOICE',
+            choices: ['create-folder','delete-folder'],
+            description: 'Creation or Deletion of folder execution based on user choice '
+        )
+    }
+    
+    stages {
+        stage('Creation of Folder') {
+             when {
+                expression {
+                    params.CREATION_OR_DELETION_FOLDER_CHOICE == 'create-folder'
+                }
+            }
+            steps {
+                echo 'This step ONLY execute when user selects to CREATE a folder'
+                script{
+                    sh 'mkdir -p directory1'
+                    sh 'mkdir -p directory2'
+                    sh 'ls -lart'
+                }
+              
+            }
+        }
+        
+        stage ('Deletion of Folder') {
+            when {
+                expression {
+                    params.CREATION_OR_DELETION_FOLDER_CHOICE == 'delete-folder'
+                }
+            }
+            steps {
+                echo 'This step ONLY execute when user selects to DELETE a folder'
+            script{
+                sh 'rmdir -p directory1'
+                sh 'rmdir -p directory2'
+                sh 'ls -lart'
+                }
+            }
+        }
+            
+        }
+    }
+
+
