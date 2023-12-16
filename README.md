@@ -1,6 +1,8 @@
 # parametersInJenkins
 # Demo file for Jenkins Parameters
 
+# defining variables in Environment block
+
 pipeline {
     agent any
 
@@ -85,7 +87,7 @@ pipeline {
         stage('CREATE a Folder') {
             when {
                 expression {
-                    params.Execute == 'create-folder'
+                    params.CREATION_OR_DELETION_FOLDER_CHOICE == 'create-folder'
                 }
             }
             steps {
@@ -99,7 +101,7 @@ pipeline {
         stage('DELETE a Folder') {
             when {
                 expression {
-                    params.Execute == 'delete-folder'
+                    params.CREATION_OR_DELETION_FOLDER_CHOICE == 'delete-folder'
                 }
             }
 
