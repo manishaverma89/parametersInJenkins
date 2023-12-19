@@ -16,7 +16,7 @@ pipeline {
                 }
             }
             steps {
-                echo 'This step ONLY execute when user selects to CREATE a folder'
+                echo 'This step ONLY execute when user selects to CREATE a folder '
                 script{
                     sh 'mkdir -p directory1'
                     sh 'mkdir -p directory2'
