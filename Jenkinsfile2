@@ -1,0 +1,66 @@
+pipeline {
+    agent any
+    parameters {
+        checkboxParameter(
+        name: 'Platform1', 
+        format: 'JSON',
+        pipelineSubmitContent: '{"CheckboxParameter": [{"key": "diskUsage","value": "diskUsage"},{"key": "script1","value": "script1"}]}',
+        description: ''
+        )
+        checkboxParameter(
+        name: 'Platform2', 
+        format: 'JSON',
+        pipelineSubmitContent: '{"CheckboxParameter": [{"key": "script3","value": "script3"}]}',
+        description: ''
+        )
+
+    }
+    stages {
+        stage('Hello') {
+            when{
+                expression{
+                    params.Platform1 == 'diskUsage'
+                    
+                }
+            }
+            steps {
+                echo 'Hello World we are getting diskusage from Platform1'
+                sh 'df -T'
+            }
+        }
+        
+        stage('Welcome') {
+             when{
+                expression{
+                    params.Platform1 == 'script1'
+                    
+                }
+             }
+            steps{
+                echo "Welcome here we are solving script1 in Platform1"
+                
+                sh 'hostname'
+                sh 'pwd'
+                
+            }
+        }
+        
+        stage('building') {
+            when {
+                expression{
+                    params.Platform2 == 'script3'
+                }
+            }
+            steps {
+                echo "we are solving script3 in Platform2"
+                
+                sh 'ls -lart'
+                sh 'pwd'
+                    
+                
+                }
+            }
+        }
+    }
+    
+
